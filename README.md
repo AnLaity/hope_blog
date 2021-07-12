@@ -1,2 +1,1 @@
-# hope_blog
-Hope Blog
+#Hope Blog
