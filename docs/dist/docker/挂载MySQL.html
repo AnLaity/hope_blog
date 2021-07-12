@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Docker 安装 MySQL 并挂载文件 | Hope Blog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="Hope Blog">
+    
+    <link rel="preload" href="/hope_blog/assets/css/0.styles.11948dc8.css" as="style"><link rel="preload" href="/hope_blog/assets/js/app.7fda4652.js" as="script"><link rel="preload" href="/hope_blog/assets/js/2.63c3abf2.js" as="script"><link rel="preload" href="/hope_blog/assets/js/9.399019ca.js" as="script"><link rel="prefetch" href="/hope_blog/assets/js/10.ce1b54a7.js"><link rel="prefetch" href="/hope_blog/assets/js/11.fc35b6af.js"><link rel="prefetch" href="/hope_blog/assets/js/12.47203061.js"><link rel="prefetch" href="/hope_blog/assets/js/13.452a9dc1.js"><link rel="prefetch" href="/hope_blog/assets/js/3.7985bb7f.js"><link rel="prefetch" href="/hope_blog/assets/js/4.e268862a.js"><link rel="prefetch" href="/hope_blog/assets/js/5.0c896d33.js"><link rel="prefetch" href="/hope_blog/assets/js/6.2958d7f8.js"><link rel="prefetch" href="/hope_blog/assets/js/7.6c1581a9.js"><link rel="prefetch" href="/hope_blog/assets/js/8.f0836d6b.js">
+    <link rel="stylesheet" href="/hope_blog/assets/css/0.styles.11948dc8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/hope_blog/" class="home-link router-link-active"><img src="/hope_blog/images/logo.png" alt="Hope Blog" class="logo"> <span class="site-name can-hide">Hope Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="归类" class="dropdown-title"><span class="title">归类</span> <span class="arrow down"></span></button> <button type="button" aria-label="归类" class="mobile-dropdown-title"><span class="title">归类</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/hope_blog/docker/安装配置.html" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/hope_blog/java/Lambda.html" class="nav-link">
+  Java
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="归类" class="dropdown-title"><span class="title">归类</span> <span class="arrow down"></span></button> <button type="button" aria-label="归类" class="mobile-dropdown-title"><span class="title">归类</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/hope_blog/docker/安装配置.html" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/hope_blog/java/Lambda.html" class="nav-link">
+  Java
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Docker</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/hope_blog/docker/安装配置.html" class="sidebar-link">Centos7 安装 Docker 并配置</a></li><li><a href="/hope_blog/docker/挂载MySQL.html" class="active sidebar-link">Docker 安装 MySQL 并挂载文件</a></li><li><a href="/hope_blog/docker/挂载Nginx.html" class="sidebar-link">Docker 安装 Nginx</a></li><li><a href="/hope_blog/docker/挂载Redis.html" class="sidebar-link">Docker 安装 redis</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Java</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h4 id="docker-安装-mysql-并挂载文件"><a href="#docker-安装-mysql-并挂载文件" class="header-anchor">#</a> Docker 安装 MySQL 并挂载文件</h4> <ul><li>docker 命令</li></ul> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code>docker run -i -t --name mysql --restart<span class="token operator">=</span>always --privileged<span class="token operator">=</span>true -e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>hope0416. -p <span class="token number">7000</span>:3306 -v /data/mysql/data:/var/lib/mysql -v /data/mysql/cnf:/etc/mysql/conf.d -v /data/mysql/logs:/var/log/mysql -d mysql --character-set-server<span class="token operator">=</span>utf8mb4 --collation-server<span class="token operator">=</span>utf8mb4_unicode_ci
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>my.cnf 配置 修改默认的 sql_mode</li></ul> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
+sql_mode <span class="token operator">=</span> <span class="token string">'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'</span>
+max_connections <span class="token operator">=</span> <span class="token number">512</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/hope_blog/docker/安装配置.html" class="prev">
+        Centos7 安装 Docker 并配置
+      </a></span> <span class="next"><a href="/hope_blog/docker/挂载Nginx.html">
+        Docker 安装 Nginx
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/hope_blog/assets/js/app.7fda4652.js" defer></script><script src="/hope_blog/assets/js/2.63c3abf2.js" defer></script><script src="/hope_blog/assets/js/9.399019ca.js" defer></script>
+  </body>
+</html>
