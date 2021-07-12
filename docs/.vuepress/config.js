@@ -8,6 +8,7 @@ module.exports = {
         lineNumbers: true,
     },
     themeConfig: {
+        displayAllHeaders: true,
         logo: "/images/logo.png",
         sidebar: [
             {
