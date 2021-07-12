@@ -3,7 +3,7 @@ module.exports = {
     title: "Hope Blog",
     description: "Hope Blog",
     base: "/hope_blog/",
-    dest: "dist",
+    dest: "docs/dist",
     markdown: {
         lineNumbers: true,
     },
