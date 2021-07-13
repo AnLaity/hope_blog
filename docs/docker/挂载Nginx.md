@@ -1,7 +1,7 @@
 #### Docker 安装 Nginx
 
 -  先启动一个未配置的nginx查看nginx默认配置
-```
+```shell
 docker run -i -t nginx /bin/bash
 ``` 
 

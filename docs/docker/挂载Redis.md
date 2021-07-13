@@ -1,7 +1,7 @@
 #### Docker 安装 redis
 
 - docker 命令
-```
+```shell
 docker run -d --privileged=true --restart=always -p 7001:6379 -v /data/redis/conf/redis.conf:/etc/redis/redis.conf -v /data/redis/data:/data --name redis redis:latest redis-server --appendonly yes --requirepass "hope"
 ```
 
