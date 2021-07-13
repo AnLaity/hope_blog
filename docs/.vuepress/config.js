@@ -5,38 +5,23 @@ module.exports = {
     base: "/hope_blog/",
     dest: "docs/dist",
     markdown: {
-        lineNumbers: true,
+        // lineNumbers: true,
     },
     themeConfig: {
         displayAllHeaders: true,
         logo: "/images/logo.png",
-        sidebar: [
-            {
-                title: "Docker",
-                collapsable: true,
-                children: [
-                    "docker/安装配置",
-                    "docker/挂载MySQL",
-                    "docker/挂载Nginx",
-                    "docker/挂载Redis"
-                ],
-            },
-            {
-                title: "Java",
-                collapsable: true,
-                children: [
-                    "java/Lambda"
-                ],
-            },
-        ],
         nav: [
             {
-                text: "归类",
+                text: "首页", link: "/Home"
+            },
+            {
+                text: "关于",
                 items: [
-                    {text: "Docker", link: "/docker/安装配置"},
-                    {text: "Java", link: "/java/Lambda"},
+                    {text: "GitHub", link: "https://github.com/AnLaity"},
                 ]
             }
         ],
+        lastUpdatedText: "最近更新",
+        lastUpdated: true
     },
 };
