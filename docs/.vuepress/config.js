@@ -21,7 +21,6 @@ module.exports = {
                 ]
             }
         ],
-        lastUpdatedText: "最近更新",
         lastUpdated: true
     },
 };
